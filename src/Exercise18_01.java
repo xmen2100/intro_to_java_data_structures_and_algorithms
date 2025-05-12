@@ -11,7 +11,6 @@ public class Exercise18_01 {
         System.out.println("Factorial of " + n + " is " + factorial(BigInteger.valueOf(n)));
     }
 
-    // Added this comment
     public static BigInteger factorial(BigInteger n) {
         if (n.equals(BigInteger.ZERO)) {
             return BigInteger.ONE;
