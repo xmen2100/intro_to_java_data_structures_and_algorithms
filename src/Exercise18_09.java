@@ -13,7 +13,7 @@ public class Exercise18_09 {
             char endChar = value.charAt(value.length() - 1);
             System.out.print(endChar);
 
-            reverseDisplay(value.replace(String.valueOf(endChar), ""));
+            reverseDisplay(value.replaceFirst(String.valueOf(endChar), ""));
         }
     }
 }
