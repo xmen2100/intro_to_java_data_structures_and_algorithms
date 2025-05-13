@@ -8,15 +8,19 @@ public class Test {
         System.out.println("Is racecar a palindrome? " + isPalindrome("racecar"));
     }
 
-    public static boolean isPalindrome(String str) {
-        if (str.length() <= 1) {
+    public static boolean isPalindrome(String s) {
+        return isPalindrome(s, 0, s.length() - 1);
+    }
+
+    public static boolean isPalindrome(String s, int low, int high) {
+        if (high <= low) {
             return true;
         }
-        else if (str.charAt(0) != str.charAt(str.length() - 1)) {
+        else if (s.charAt(low) != s.charAt(high)) {
             return false;
         }
         else {
-            return isPalindrome(str.substring(1, str.length() - 1));
+            return isPalindrome(s, ++low, --high);
         }
     }
 }
