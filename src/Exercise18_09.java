@@ -10,10 +10,9 @@ public class Exercise18_09 {
 
     public static void reverseDisplay(String value) {
         if (!value.isEmpty()) {
-            char endChar = value.charAt(value.length() - 1);
-            System.out.print(endChar);
+            System.out.print(value.charAt(value.length() - 1));
 
-            reverseDisplay(value.replaceFirst(String.valueOf(endChar), ""));
+            reverseDisplay(value.substring(0, value.length() - 1));
         }
     }
 }
