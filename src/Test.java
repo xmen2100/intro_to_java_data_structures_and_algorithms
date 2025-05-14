@@ -1,26 +1,28 @@
 public class Test {
     public static void main(String[] args) {
-        System.out.println("Is moon a palindrome? " + isPalindrome("moon"));
-        System.out.println("Is noon a palindrome? " + isPalindrome("noon"));
-        System.out.println("Is a a palindrome? " + isPalindrome("a"));
-        System.out.println("Is aba a palindrome? " + isPalindrome("aba"));
-        System.out.println("Is ab a palindrome? " + isPalindrome("ab"));
-        System.out.println("Is racecar a palindrome? " + isPalindrome("racecar"));
+        System.out.println(binarySearch(new int[] {1, 2, 3, 4, 6}, 5));
     }
 
-    public static boolean isPalindrome(String s) {
-        return isPalindrome(s, 0, s.length() - 1);
+    public static int binarySearch(int[] list, int key) {
+        int low = 0;
+        int high = list.length - 1;
+        return binarySearch(list, key, low, high);
     }
 
-    public static boolean isPalindrome(String s, int low, int high) {
-        if (high <= low) {
-            return true;
+    private static int binarySearch(int[] list, int key, int low, int high) {
+        if (low > high) {
+            return -low - 1;
         }
-        else if (s.charAt(low) != s.charAt(high)) {
-            return false;
+
+        int mid = (low + high) / 2;
+        if (key < list[mid]) {
+            return binarySearch(list, key, low, mid - 1);
+        }
+        else if (key == list[mid]) {
+            return mid;
         }
         else {
-            return isPalindrome(s, ++low, --high);
+            return binarySearch(list, key, mid + 1, high);
         }
     }
 }

@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
-public class Exercise18_10 {
-    static int count;
-
+public class Exercise18_15 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -16,12 +14,18 @@ public class Exercise18_10 {
     }
 
     public static int count(String str, char a) {
-        if (!str.isEmpty()) {
-            if (str.charAt(0) == a) {
-                count++;
-            }
-            count(str.substring(1), a);
+        return count(str, a, str.length() - 1);
+    }
+
+    public static int count(String str, char a, int high) {
+        if (high < 0) {
+            return 0;
         }
-        return count;
+        else if (str.charAt(high) == a) {
+            return 1 + count(str, a, high - 1);
+        }
+        else {
+            return count(str, a, high - 1);
+        }
     }
 }
